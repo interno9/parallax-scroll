@@ -42,7 +42,7 @@
   z-index: 10;
   height: 200px;
   width: 200px;
-  top: 4em;
+  top: 10em;
   left: 4vw;
 }
 
@@ -50,13 +50,13 @@
   right: 2%;
   height: 35vh;
   width: 30vh;
-  top: 12em;
+  top: -17em;
 }
 
 .container .images .imageContainer:nth-of-type(3) {
   z-index: 10;
   left: 1.5vw;
-  top: 20vh;
+  top: 5vh;
   height: 20vh;
   width: 35vh;
 }

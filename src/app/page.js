@@ -133,7 +133,7 @@ export default function Home() {
             document.getElementById("badvisorStool")
             .contentWindow.postMessage(
             { type: "startAction", name: "Oak"}, "*")'
-            style="background-color: Brown ;color: white;" >
+            style="background-color: DarkRed ;color: white;" >
            <!-- Oak -->
             </button>`,
             `<button
@@ -141,7 +141,7 @@ export default function Home() {
             document.getElementById("badvisorStool")
             .contentWindow.postMessage(
             { type: "startAction", name: "Red"}, "*")'
-            style="background-color:Crimson  ;color: white;" >
+            style="background-color:FireBrick  ;color: white;" >
             
             <!-- Red -->
             </button>`,

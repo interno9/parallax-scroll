@@ -28,13 +28,6 @@ export default function Index({
     const tl = gsap.timeline();
 
     tl.fromTo(
-      iframeRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 1, ease: "power2.inOut" },
-      "+=0.5"
-    );
-
-    tl.fromTo(
       title1Ref.current,
       { opacity: 0 },
       { opacity: 1, duration: 1, ease: "power2.inOut" },
@@ -140,7 +133,6 @@ export default function Index({
         ))}
 
         <iframe
-          ref={iframeRef}
           id={id}
           style={{
             pointerEvents: "none",
