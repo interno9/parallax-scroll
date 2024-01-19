@@ -8,8 +8,8 @@
 .container .body h1 {
   margin: 0px;
 
-  font-size: 6em;
-  line-height: 0.5em;
+  font-size: 5em;
+  line-height: 0.7em;
   text-transform: uppercase;
 }
 
@@ -55,8 +55,8 @@
 
 .container .images .imageContainer:nth-of-type(3) {
   z-index: 10;
-  left: 2.5vw;
-  top: 25vh;
+  left: 1.5vw;
+  top: 20vh;
   height: 20vh;
   width: 35vh;
 }

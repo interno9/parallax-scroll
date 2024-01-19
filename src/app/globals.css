@@ -1,5 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,400&display=swap");
 body {
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica", sans-serif;
   background-color: #cccccc;
   margin: 0px;
   margin-top: 50vh;
@@ -7,7 +8,7 @@ body {
 }
 
 h1 {
-  font-family: "Bodoni";
+  font-family: "Bodoni Moda", serif;
 }
 
 img {

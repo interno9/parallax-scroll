@@ -81,7 +81,7 @@ export default function Index({
     ScrollTrigger.create({
       trigger: containerRef.current,
       start: "top 100%",
-      end: "bottom 120%",
+      end: "bottom 130%",
       animation: tl,
       scrub: 0.1,
     });

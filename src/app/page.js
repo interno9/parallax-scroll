@@ -55,7 +55,7 @@ export default function Home() {
      None of their other designs come as close to achieving this ideal as the Plastic Chairs. 
      For years, the designer couple explored the fundamental idea of a one-piece seat shell
      moulded to fit the contours of the human body. `}
-          date={"1940s"}
+          date={"1945"}
           model={"plasticvitra"}
           images={["7.png", "9.jpg", "8.jpg"]}
           id={"badvisorChair"}
