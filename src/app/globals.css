@@ -1,12 +1,39 @@
-@font-face {
-    font-family: 'Regular';
-    src: url('../../public/fonts/YoungSerif-Regular.ttf');
+body {
+  font-family: "Helvetica Neue";
+  background-color: #cccccc;
+  margin: 0px;
+  margin-top: 50vh;
+  overflow: hidden;
 }
 
-body{
-    background-color: #CCCCCC;
-    margin: 0px;
-    font-family: 'Regular';
-    margin-top: 100vh;
-    margin-bottom: 100vh;
+h1 {
+  font-family: "Bodoni";
+}
+
+img {
+  border-radius: 0.5em;
+  pointer-events: none;
+}
+
+*::selection {
+  background-color: unset;
+}
+
+button {
+  margin: 0.5em 0.5em 0 0;
+  font-weight: bold;
+  border: 0;
+  padding: 0.4em;
+  font-size: 1em;
+  min-width: 1.5em;
+  min-height: 1.5em;
+  border-radius: 1em;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+iframe {
+  transform: translateY(-15%);
 }

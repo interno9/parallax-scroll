@@ -1,0 +1,84 @@
+.container {
+}
+
+.container .body {
+  margin-left: 10vw;
+}
+
+.container .body h1 {
+  margin: 0px;
+
+  font-size: 6em;
+  line-height: 0.5em;
+  text-transform: uppercase;
+}
+
+.container .body p {
+  color: rgb(255, 255, 255);
+  margin: 0px;
+  font-size: 2em;
+}
+
+.container .body p span {
+  position: relative;
+}
+
+.container .images {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+}
+
+.container .images .imageContainer {
+  position: absolute;
+}
+
+.container .images .imageContainer img {
+  object-fit: cover;
+}
+
+.container .images .imageContainer:nth-of-type(1) {
+  z-index: 10;
+  height: 200px;
+  width: 200px;
+  top: 4em;
+  left: 4vw;
+}
+
+.container .images .imageContainer:nth-of-type(2) {
+  right: 2%;
+  height: 35vh;
+  width: 30vh;
+  top: 12em;
+}
+
+.container .images .imageContainer:nth-of-type(3) {
+  z-index: 10;
+  left: 2.5vw;
+  top: 25vh;
+  height: 20vh;
+  width: 35vh;
+}
+
+@media only screen and (max-width: 900px) {
+  .container .body h1 {
+    font-size: 3em;
+  }
+
+  .container .images .imageContainer:nth-of-type(1) {
+    height: 10vh;
+    width: 10vh;
+  }
+
+  .container .images .imageContainer:nth-of-type(2) {
+    height: 25vh;
+    width: 17vh;
+  }
+
+  .container .images .imageContainer:nth-of-type(3) {
+    top: 9em;
+    height: 14vh;
+    width: 25vh;
+  }
+}

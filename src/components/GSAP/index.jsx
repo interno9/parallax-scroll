@@ -1,74 +1,156 @@
-'use client';
-import { useLayoutEffect, useRef } from "react";
-import styles from '../../app/page.module.scss';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Picture1 from '../../../public/medias/1.jpg';
-import Picture2 from '../../../public/medias/2.jpg';
-import Picture3 from '../../../public/medias/3.jpg';
+"use client";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import styles from "../../app/page.module.css";
 
-gsap.registerPlugin(ScrollTrigger) 
-const word = "with gsap";
+gsap.registerPlugin(ScrollTrigger);
 
-export default function Index() {
-    const container = useRef(null);
-    const images = [Picture1, Picture2, Picture3];
-    const lettersRef = useRef([])
-    const imagesRef = useRef([])
-    const title1 = useRef(null);
-    useLayoutEffect( () => {
-        const context = gsap.context( () => {
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: container.current,
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: true,
-                },
-            })
-            .to(title1.current, {y: -50}, 0)
-            .to(imagesRef.current[1], {y: -150}, 0)
-            .to(imagesRef.current[2], {y: -255}, 0)
-            lettersRef.current.forEach((letter, i) => {
-                tl.to(letter, {
-                    top: Math.floor(Math.random() * -75) - 25,
-                }, 0)
-            })
-            
-        })
-        return () => context.revert();
-    }, [])
+export default function Index({
+  images,
+  title,
+  date,
+  paragraph,
+  model,
+  buttons,
+  id,
+}) {
+  const containerRef = useRef(null);
+  const title1Ref = useRef(null);
+  const lettersRef = useRef([]);
+  const imagesRef = useRef([]);
+  const paragraphRef = useRef(null);
+  const iframeRef = useRef(null);
+  const buttonsRef = useRef([]);
 
-    return (
-        <div ref={container} className={styles.container}>
-            <div className={styles.body}>
-                <h1 ref={title1}>Parallax</h1>
-                <h1 >Scroll</h1>
-                <div className={styles.word}>
-                    <p>
-                        {
-                            word.split("").map((letter, i) => {
-                                return <span key={`l_${i}`} ref={el => lettersRef.current[i] = el}>{letter}</span>
-                            })
-                        }
-                    </p>
-                </div>
-            </div>
-            <div className={styles.images}>
-                {
-                    images.map( (image, i) => {
-                        return <div key={`i_${i}`} ref={el => imagesRef.current[i] = el} className={styles.imageContainer}>
-                            <Image 
-                                src={image}
-                                placeholder="blur"
-                                alt="image"
-                                fill
-                            />
-                        </div>
-                    })
-                }
-            </div>
+  useEffect(() => {
+    const tl = gsap.timeline();
+
+    tl.fromTo(
+      iframeRef.current,
+      { opacity: 0 },
+      { opacity: 1, duration: 1, ease: "power2.inOut" },
+      "+=0.5"
+    );
+
+    tl.fromTo(
+      title1Ref.current,
+      { opacity: 0 },
+      { opacity: 1, duration: 1, ease: "power2.inOut" },
+      "+=0.5"
+    );
+
+    //  date letters
+    lettersRef.current.forEach((letter, i) => {
+      tl.fromTo(
+        letter,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.5, ease: "power2.inOut" },
+        "-=0.5"
+      );
+    });
+
+    // Animation for the paragraph
+    tl.fromTo(
+      paragraphRef.current,
+      { opacity: 0 },
+      { opacity: 1, duration: 1, ease: "power2.inOut" },
+      "-=0.5"
+    );
+
+    // Animation for buttons
+    buttonsRef.current.forEach((button, i) => {
+      tl.fromTo(
+        button,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power1.out" },
+        `+=${i * 0.1}`
+      );
+    });
+    // Animation for the images along the Y-axis
+    imagesRef.current.forEach((image, i) => {
+      tl.fromTo(
+        image,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power1.out" }
+      );
+    });
+
+    // Define a ScrollTrigger for the whole container
+    ScrollTrigger.create({
+      trigger: containerRef.current,
+      start: "top 100%",
+      end: "bottom 120%",
+      animation: tl,
+      scrub: 0.1,
+    });
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      className={styles.container}
+      style={{ marginTop: "10em" }}
+    >
+      <div className={styles.body} id="content">
+        <h1 ref={title1Ref}>{title}</h1>
+        <div className={styles.word}>
+          <p>
+            {[...date].map((letter, i) => (
+              <span key={`l_${i}`} ref={(el) => (lettersRef.current[i] = el)}>
+                {letter}
+              </span>
+            ))}
+          </p>
         </div>
-    )
+        <p
+          ref={paragraphRef}
+          style={{
+            fontSize: "1em",
+            maxWidth: "430px",
+            margin: 0,
+            color: "#111",
+            fontWeight: "bold",
+            opacity: 0,
+          }}
+        >
+          {paragraph}
+        </p>
+
+        {buttons.map((button, index) => (
+          <span
+            key={index}
+            ref={(el) => (buttonsRef.current[index] = el)}
+            dangerouslySetInnerHTML={{ __html: button }}
+            className={styles.button}
+          />
+        ))}
+      </div>
+
+      <div className={styles.images}>
+        {images.map((image, i) => (
+          <div
+            key={`i_${i}`}
+            ref={(el) => (imagesRef.current[i] = el)}
+            className={styles.imageContainer}
+          >
+            <Image src={`/medias/${image}`} alt="image" fill />
+          </div>
+        ))}
+
+        <iframe
+          ref={iframeRef}
+          id={id}
+          style={{
+            pointerEvents: "none",
+            width: "100vw",
+            height: "90vh",
+            border: "none",
+          }}
+          src={`https://app.badvisor.io/nicov3/modules/${model}`}
+        />
+      </div>
+    </div>
+  );
 }
