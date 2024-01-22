@@ -140,7 +140,7 @@ export default function Index({
             height: "90vh",
             border: "none",
           }}
-          src={`https://app.badvisor.io/nicov3/modules/${model}`}
+          src={`https://app.badvisor.io/showcases/design/${model}`}
         />
       </div>
     </div>
