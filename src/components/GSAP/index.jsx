@@ -61,7 +61,6 @@ export default function Index({
         `+=${i * 0.1}`
       );
     });
-    // Animation for the images along the Y-axis
     imagesRef.current.forEach((image, i) => {
       tl.fromTo(
         image,
@@ -70,7 +69,6 @@ export default function Index({
       );
     });
 
-    // Define a ScrollTrigger for the whole container
     ScrollTrigger.create({
       trigger: containerRef.current,
       start: "top 100%",
@@ -101,7 +99,7 @@ export default function Index({
           ref={paragraphRef}
           style={{
             fontSize: "1em",
-            maxWidth: "430px",
+            maxWidth: "400px",
             margin: 0,
             color: "#111",
             fontWeight: "bold",

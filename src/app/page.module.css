@@ -2,12 +2,11 @@
 }
 
 .container .body {
-  margin-left: 10vw;
+  padding-left: 1em;
 }
 
 .container .body h1 {
   margin: 0px;
-
   font-size: 5em;
   line-height: 0.7em;
   text-transform: uppercase;

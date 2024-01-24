@@ -38,9 +38,7 @@ export default function Home() {
 
   return (
     <>
-      <h1 style={{ textAlign: "center", fontSize: "6em", margin: 0 }}>
-        Vitra catalog
-      </h1>
+      <h1 style={{ textAlign: "center", fontSize: "3em" }}>Vitra catalog</h1>
 
       <img
         ref={firstImageRef}
