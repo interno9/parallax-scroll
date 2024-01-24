@@ -4,7 +4,6 @@ body {
   background-color: #cccccc;
   margin: 0px;
   margin-top: 50vh;
-  overflow: hidden;
   animation: fadeIn 1s ease-in-out forwards;
 }
 
@@ -23,7 +22,6 @@ h1 {
 
 img {
   border-radius: 0.5em;
-  pointer-events: none;
 }
 
 *::selection {

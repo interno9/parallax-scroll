@@ -135,7 +135,7 @@ export default function Index({
         <iframe
           id={id}
           style={{
-            pointerEvents: "none",
+            zIndex: -1,
             width: "100vw",
             height: "90vh",
             border: "none",
